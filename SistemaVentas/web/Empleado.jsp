@@ -1,7 +1,7 @@
 <%-- 
     Document   : Empleado
-    Created on : 19 jun. 2022, 12:14:23
-    Author     : gabri
+    Created on : 19 jun 2022, 16:57:27
+    Author     : Fá
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Hello World!Soy Empleado</h1>
     </body>
 </html>

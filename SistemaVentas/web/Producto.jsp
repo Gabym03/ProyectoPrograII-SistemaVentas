@@ -1,7 +1,7 @@
 <%-- 
     Document   : Producto
-    Created on : 19 jun. 2022, 12:14:37
-    Author     : gabri
+    Created on : 19 jun 2022, 16:57:17
+    Author     : Fá
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Hello World!Soy producto</h1>
     </body>
 </html>

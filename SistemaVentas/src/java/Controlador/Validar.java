@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controlador;
 
 import java.io.IOException;
@@ -12,10 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author gabri
- */
+
 public class Validar extends HttpServlet {
 
     /**
@@ -73,8 +66,8 @@ public class Validar extends HttpServlet {
         processRequest(request, response);
         String accion=request.getParameter("accion");
                 if (accion.equalsIgnoreCase("Ingresar")){
-                    String user-request.getParameter("txtuser");
-                    String pass-request.getParameter("txtpass");
+                    String user=request.getParameter("txtuser");
+                    String pass=request.getParameter("txtpass");
                     
                 }
     }

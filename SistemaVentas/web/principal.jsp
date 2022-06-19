@@ -25,16 +25,16 @@
         <a class="nav-link" href="#">Home</a>
       </li>
       <li class="nav-item">
-        <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="#">Producto</a>
+        <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="Controlador?accion=Producto" target="#myFrame">Producto</a>
       </li>
       <li class="nav-item">
-        <a style="margin-left: 10px; border: none" class="btn-outline-light" href="#">Empleado</a>
+        <a style="margin-left: 10px; border: none" class="btn-outline-light" href="Controlador?accion=Empleado" target="#myFrame">Empleado</a>
       </li>
       <li class="nav-item">
-        <a style="margin-left: 10px; border: none" class="btn-outline-light" href="#">Clientes</a>
+        <a style="margin-left: 10px; border: none" class="btn-outline-light" href="Controlador?accion=Clientes" target="#myFrame">Clientes</a>
       </li>
       <li class="nav-item">
-        <a style="margin-left: 10px; border: none" class="btn-outline-light" href="#">Nueva Venta </a>
+        <a style="margin-left: 10px; border: none" class="btn-outline-light" href="Controlador?accion=NuevaVenta" target="#myFrame">Nueva Venta </a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -75,7 +75,7 @@
   </div>
 </nav>
         <div class="m-4" style="height: 550px;"> 
-            <iframe> id="MyFriend" style="height: 100%; width: 100%" </iframe>
+            <iframe> id="MyFrame" style="height: 100%; width: 100%" </iframe>
         </div>
         
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -83,3 +83,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </body>
 </html>
+

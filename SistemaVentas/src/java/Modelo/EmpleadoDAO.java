@@ -52,7 +52,7 @@ String sql="select * from empleado where User=? and Dni=?";
       return lista;
    }
    public int agregar(Empleado em){
-      String sql="insert into empleado(Dui, Nombres, Telefono, Estado, User)values(?,?,?,?,?)";
+      String sql="insert into empleado(Dni, Nombres, Telefono, Estado, User)values(?,?,?,?,?)";
       try {
          con=cn.Conexion();
          ps=con.prepareStatement(sql);
@@ -85,7 +85,7 @@ String sql="select * from empleado where User=? and Dni=?";
       return emp;
    }
    public int actualizar(Empleado em){
-      String sql="update empleado set Dui=?, Nombres=?, Telefono=?, Estado=?, User=? where IdEmpleado=?";
+      String sql="update empleado set Dni=?, Nombres=?, Telefono=?, Estado=?, User=? where IdEmpleado=?";
       try {
          con=cn.Conexion();
          ps=con.prepareStatement(sql);

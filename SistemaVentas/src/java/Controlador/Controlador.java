@@ -31,30 +31,22 @@ public class Controlador extends HttpServlet {
             throws ServletException, IOException {
         String menu=request.getParameter("menu");
         String accion=request.getParameter("accion");
+        if (menu.equals("Principal")){
+            request.getRequestDispatcher("principal.jsp").forward(request, response);
+        }
         if (menu.equals("Empleado")){
             request.getRequestDispatcher("Empleado.jsp").forward(request, response);
         }
-        switch (accion){
-            case "Principal":
-                request.getRequestDispatcher("Principal.jsp").forward(request, response);
-        break;
-        
-            case "Producto":
-                request.getRequestDispatcher("Producto.jsp").forward(request, response);
-                break;
-        case "Clientes":
+        if (menu.equals("Clientes")){
             request.getRequestDispatcher("Clientes.jsp").forward(request, response);
-                break;
-        case "NuevaVenta":
-            request.getRequestDispatcher("RegistrarVentas.jsp").forward(request, response);
-                break;
-        case "Empleado":
+        }
+        if (menu.equals("Productos")){
             request.getRequestDispatcher("Empleado.jsp").forward(request, response);
-                break;
+        }
+        if (menu.equals("NuevaVenta")){
+            request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
+        }
         
-            default:
-                throw new AssertionError();
-        } 
         }
     }
 

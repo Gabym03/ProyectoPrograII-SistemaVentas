@@ -27,6 +27,8 @@ public class Controlador extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    Empleado em=new Empleado();
+    EmpleadoDAO edao=new EmpleadoDAO();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String menu=request.getParameter("menu");
@@ -37,7 +39,8 @@ public class Controlador extends HttpServlet {
         if (menu.equals("Empleado")){
             switch (accion){
                 case: "Listar";
-                    
+                    List lista=edao.listar();
+                    request.setAttribute("empleados", lista);
                     break;
                 case: "Agregar";
                     

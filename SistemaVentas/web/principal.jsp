@@ -75,7 +75,7 @@
   </div>
 </nav>
         <div class="m-4" style="height: 550px;"> 
-            <iframe> id="MyFrame" style="height: 100%; width: 100%" </iframe>
+            <iframe> id="MyFrame" style="height: 100%; width: 100%; border: none" </iframe>
         </div>
         
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

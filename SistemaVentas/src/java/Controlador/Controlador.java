@@ -5,8 +5,11 @@
  */
 package Controlador;
 
+import Modelo.Empleado;
+import Modelo.EmpleadoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -39,11 +42,11 @@ public class Controlador extends HttpServlet {
         }
         if (menu.equals("Empleado")){
             switch (accion){
-                case: "Listar";
+                case "Listar":
                     List lista=edao.listar();
                     request.setAttribute("empleados", lista);
                     break;
-                case: "Agregar";
+                case "Agregar":
                     String dni=request.getParameter("txtDni");
                     String nom=request.getParameter("txtNombres");
                     String tel=request.getParameter("txtTel");
@@ -57,13 +60,13 @@ public class Controlador extends HttpServlet {
                     edao.agregar(em);
                     request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
                     break;
-                case: "Editar";
+                case "Editar":
                     ide=Integer.parseInt(request.getParameter("id"));
                     Empleado e=edao.listarId(ide);
                     request.setAttribute("empleado", e);
                     request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
                     break;
-                case: "Actualizar";
+                case "Actualizar":
                     String dni1=request.getParameter("txtDni");
                     String nom1=request.getParameter("txtNombres");
                     String tel1=request.getParameter("txtTel");
@@ -78,7 +81,7 @@ public class Controlador extends HttpServlet {
                     edao.actualizar(em);
                     request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
                     break;
-                case: "Delete";
+                case "Delete":
                     ide=Integer.parseInt(request.getParameter("id"));
                     edao.delete(ide);
                     request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);

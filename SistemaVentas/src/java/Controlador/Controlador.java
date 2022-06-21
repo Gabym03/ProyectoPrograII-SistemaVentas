@@ -4,21 +4,20 @@
  * and open the template in the editor.
  */
 package Controlador;
-
+//Cambios importados
 import Modelo.Empleado;
 import Modelo.EmpleadoDAO;
+//.
 import java.io.IOException;
 import java.io.PrintWriter;
+//Cambios importados
 import java.util.List;
+//.
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author gabri
- */
 public class Controlador extends HttpServlet {
 
     /**
@@ -42,6 +41,7 @@ public class Controlador extends HttpServlet {
         }
         if (menu.equals("Empleado")){
             switch (accion){
+                //Corrección case "":
                 case "Listar":
                     List lista=edao.listar();
                     request.setAttribute("empleados", lista);
@@ -101,7 +101,6 @@ public class Controlador extends HttpServlet {
             request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
         }
         
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -1,7 +1,7 @@
 <%-- 
     Document   : Clientes
-    Created on : 19 jun. 2022, 12:14:03
-    Author     : gabri
+    Created on : 19 jun 2022, 16:57:40
+    Author     : Fá
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Hello World!Soy Clientes</h1>
     </body>
 </html>

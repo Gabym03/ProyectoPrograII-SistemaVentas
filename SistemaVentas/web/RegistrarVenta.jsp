@@ -1,7 +1,7 @@
 <%-- 
-    Document   : RegistrarVenta
-    Created on : 19 jun. 2022, 12:14:58
-    Author     : gabri
+    Document   : RegistrarVentas
+    Created on : 19 jun 2022, 16:57:03
+    Author     : Neo
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Registrar Venta </h1>
     </body>
 </html>

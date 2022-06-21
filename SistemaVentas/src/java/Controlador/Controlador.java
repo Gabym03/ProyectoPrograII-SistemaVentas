@@ -61,7 +61,7 @@ public class Controlador extends HttpServlet {
                     ide=Integer.parseInt(request.getParameter("id"));
                     Empleado e=edao.listarId(ide);
                     request.setAttribute("empleado", e);
-                    request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar".forwar(request, response));
+                    request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
                     break;
                 case: "Actualizar";
                     String dni1=request.getParameter("txtDni");
@@ -76,10 +76,12 @@ public class Controlador extends HttpServlet {
                     em.setUser(user1);
                     em.setId(ide);
                     eado.actualizar(em);
-                    request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar".forwar(request, response));
+                    request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response));
                     break;
                 case: "Delete";
-                    
+                    ide=Integer.parseInt(request.getParameter("id"));
+                    edao.delete(ide);
+                    request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
                     break;
                 default:
                     throw new AssertionError();

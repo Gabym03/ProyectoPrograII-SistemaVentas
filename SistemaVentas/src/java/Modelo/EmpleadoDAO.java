@@ -1,6 +1,9 @@
 package Modelo;
 
 import config.Conexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class EmpleadoDAO {
    Conexion cn=new Conexion();
@@ -15,10 +18,10 @@ String sql="select * from empleado where User=? and Dni=?";
     con=cn.Conexion();
     ps=con.prepareStatement(sql);
     ps.setString(1, user);
-    ps.setStrig (2, dni);
+    ps.setString (2, dni);
     rs=ps.executeQuery();
     while (rs.next()){
-        em.setId(rs.getString("Id"));
+        em.setId(rs.getInt("Id"));
         em.setUser(rs.getString("User"));
         em.setDni (rs.getString("Dni"));
         em.setNom (rs.getString("Nombres"));

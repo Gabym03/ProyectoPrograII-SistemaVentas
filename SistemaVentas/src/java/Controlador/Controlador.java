@@ -75,7 +75,7 @@ public class Controlador extends HttpServlet {
                     em.setEstado(est1);
                     em.setUser(user1);
                     em.setId(ide);
-                    eado.actualizar(em);
+                    edao.actualizar(em);
                     request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response));
                     break;
                 case: "Delete";

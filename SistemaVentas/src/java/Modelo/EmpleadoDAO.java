@@ -1,8 +1,7 @@
 package Modelo;
 
 import config.Conexion;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,7 +23,7 @@ String sql="select * from empleado where User=? and Dni=?";
     ps.setString (2, dni);
     rs=ps.executeQuery();
     while (rs.next()){
-        em.setId(rs.getInt("IdEmpleado"));
+
         em.setUser(rs.getString("User"));
         em.setDni (rs.getString("Dni"));
         em.setNom (rs.getString("Nombres"));

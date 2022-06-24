@@ -34,7 +34,7 @@
         <a style="margin-left: 10px; border: none" class="btn-outline-light" href="Controlador?menu=Clientes" target="myFrame">Clientes</a>
       </li>
       <li class="nav-item">
-        <a style="margin-left: 10px; border: none" class="btn-outline-light" href="Controlador?menu=NuevaVenta" target="myFrame">Nueva Venta </a>
+        <a style="margin-left: 10px; border: none" class="btn-outline-light" href="Controlador?menu=NuevaVenta&accion=default" target="myFrame">Nueva Venta </a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

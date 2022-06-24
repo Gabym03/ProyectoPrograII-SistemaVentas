@@ -5,6 +5,8 @@
  */
 package Controlador;
 //Cambios importados
+import Modelo.Cliente;
+import Modelo.ClienteDAO;
 import Modelo.Empleado;
 import Modelo.EmpleadoDAO;
 //.
@@ -19,19 +21,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class Controlador extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     Empleado em=new Empleado();
     EmpleadoDAO edao=new EmpleadoDAO();
+    Cliente c = new Cliente();
+    ClienteDAO cdao = new ClienteDAO();
+    Producto p = new Producto();
+    ProductoDAO pdao = new ProductoDAO();
     int ide;
+    int idc;
+    int idp;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String menu=request.getParameter("menu");
@@ -98,6 +97,16 @@ public class Controlador extends HttpServlet {
             request.getRequestDispatcher("Empleado.jsp").forward(request, response);
         }
         if (menu.equals("NuevaVenta")){
+            switch (accion) {
+                case "BuscarCliente":
+                    String dni=request.getParameter("codigocliente");
+                    c.setDni(dni);
+                    c=cdao.buscar(dni);
+                    request.setAttribue("c", c);
+                    break;
+                default:
+                    throw new AssertionError();
+            }
             request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
         }
         
@@ -109,10 +118,8 @@ public class Controlador extends HttpServlet {
      *
      * @param request servlet request
      * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
@@ -123,10 +130,8 @@ public class Controlador extends HttpServlet {
      *
      * @param request servlet request
      * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
@@ -137,9 +142,14 @@ public class Controlador extends HttpServlet {
      *
      * @return a String containing servlet description
      */
-    @Override
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private static class Producto {
+
+        public Producto() {
+        }
+    }
 
 }

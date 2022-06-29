@@ -99,7 +99,7 @@
                             <input type="submit" name="accion" value="Cancelar" clasa="btn btn-danger">
                         </div>
                         <div class="col-sm-3 ml-auto">
-                            <imput type="text" name="txtTotal" value="${totalPagar}" class="form-control">
+                            <imput type="text" name="txtTotal" value="${totalPagar}0" class="form-control">
                         </div>
                     </div>
                 </div>

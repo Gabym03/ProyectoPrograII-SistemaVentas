@@ -119,10 +119,13 @@ public class Controlador extends HttpServlet {
                 case "BuscarProducto":
                     int id=Integer.parseInt(request.getParameter("codigoProducto"));
                     p = pdao.listarId(id);
+                    request.setAttribute("c", c);
                     request.setAttribute("producto", p);
                     request.getAttribute("lista", lista);
+                    request.getAttribute("totalpagar", totalPagar);
                     break;
                 case "Agregar": 
+                    request.setAttribute("c", c);
                     totalPagar = 0.0;
                     item = item +1;
                     cod = p.getId();

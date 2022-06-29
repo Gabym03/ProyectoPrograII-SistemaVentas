@@ -9,6 +9,7 @@ import Modelo.Cliente;
 import Modelo.ClienteDAO;
 import Modelo.Empleado;
 import Modelo.EmpleadoDAO;
+import Modelo.ProductoDAO;
 //.
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -102,7 +103,7 @@ public class Controlador extends HttpServlet {
                     String dni=request.getParameter("codigocliente");
                     c.setDni(dni);
                     c=cdao.buscar(dni);
-                    request.setAttribue("c", c);
+                    request.setAttribute("c", c);
                     break;
                 default:
                     throw new AssertionError();

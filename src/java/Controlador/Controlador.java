@@ -2,7 +2,7 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
+ */ 
 package Controlador;
 //Cambios importados
 import Modelo.Cliente;
@@ -10,9 +10,13 @@ import Modelo.ClienteDAO;
 import Modelo.Empleado;
 import Modelo.EmpleadoDAO;
 import Modelo.ProductoDAO;
+import Modelo.Venta;
+import Modelo.VentaDAO;
+import config.GenerarSerie;
 //.
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 //Cambios importados
 import java.util.List;
 //.
@@ -32,17 +36,19 @@ public class Controlador extends HttpServlet {
     int ide;
     int idc;
     int idp;
-    v = new Venta();
+ 
     Venta v = new Venta();
-    List<Venta>lista = new Arraylist<>();
+    List<Venta>lista=new ArrayList<>();
     int item;
     int cod;
-    String descripcion;
+    String descripcion; 
     double precio;
     int cant;
     double subtotal;
     double totalPagar;
     
+    String numeroserie;
+    VentaDAO vdao=new VentaDAO();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String menu=request.getParameter("menu");
@@ -54,7 +60,7 @@ public class Controlador extends HttpServlet {
             switch (accion){
                 //Corrección case "":
                 case "Listar":
-                    List lista=edao.listar();
+                   List lista=edao.listar();
                     request.setAttribute("empleados", lista);
                     break;
                 case "Agregar":
@@ -121,8 +127,8 @@ public class Controlador extends HttpServlet {
                     p = pdao.listarId(id);
                     request.setAttribute("c", c);
                     request.setAttribute("producto", p);
-                    request.getAttribute("lista", lista);
-                    request.getAttribute("totalpagar", totalPagar);
+                    request.setAttribute("lista", lista);
+                    request.setAttribute("totalpagar", totalPagar);
                     break;
                 case "Agregar": 
                     request.setAttribute("c", c);
@@ -143,15 +149,27 @@ public class Controlador extends HttpServlet {
                     for (int i = 0; i < lista.size(); i++){
                         totalPagar=totalPagar + lista.get(i).getSubtotal();
                     }
-                    request.getAttribute("totalpagar", totalPagar);
-                    request.getAttribute("lista", lista);
+                    request.setAttribute("totalpagar", totalPagar);
+                    request.setAttribute("lista", lista);
                     break;
                 default:
-                    throw new AssertionError();
+                    numeroserie=vdao.GenerarSerie();
+                    if(numeroserie==null){
+                        numeroserie="00000001";
+                        request.setAttribute("nserie", numeroserie);
+                    }
+                    else{
+                        int incrementar=Integer.parseInt(numeroserie);
+                        GenerarSerie gs=new GenerarSerie();
+                        numeroserie=gs.NumeroSerie(incrementar);
+                        request.setAttribute("nserie", numeroserie);
+                    }
+                    
             }
             request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
         }
-        
+        request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
+      
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -191,6 +209,10 @@ public class Controlador extends HttpServlet {
     private static class Producto {
 
         public Producto() {
+        }
+
+        private int getId() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
     }
 

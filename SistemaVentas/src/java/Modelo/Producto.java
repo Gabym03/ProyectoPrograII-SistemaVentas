@@ -1,52 +1,63 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Modelo;
 
-/**
- *
- * @author gabri
- */
 public class Producto {
-     void setId(int aInt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    int idProducto;
+    String nombres;
+    double precio;
+    int stock;
+    String estado;
+
+    public Producto() {
     }
 
-    void setEstado(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Producto(int idProducto, String nombres, double precio, int stock, String estado) {
+        this.idProducto = idProducto;
+        this.nombres = nombres;
+        this.precio = precio;
+        this.stock = stock;
+        this.estado = estado;
     }
 
-    void setStock(int aInt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int getIdProducto() {
+        return idProducto;
     }
 
-    void setPre(double aDouble) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
     }
 
-    void setNom(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getNombres() {
+        return nombres;
     }
 
-    String getNom() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
-    double getPre() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public double getPrecio() {
+        return precio;
     }
 
-    int getStock() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 
-    String getEstado() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int getStock() {
+        return stock;
     }
 
-    int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setStock(int stock) {
+        this.stock = stock;
     }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    
+    
 }

@@ -1,132 +1,116 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Modelo;
+
 import config.Conexion;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-/**
- *
- * @author gabri
- */
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class ProductoDAO {
-    Conexion cn=new Conexion();
+
+    Conexion cn = new Conexion();
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
     int r;
+
     
-    public List listar()  {
-        String sql="select * fram producto";
-        List<Producto>lista=new ArrayList<>();
+    public List listar() {
+        String sql = "SELECT * FROM producto";
+        List<Producto> lista = new ArrayList<>();
+
         try {
-            con=cn.Conexion();
-            ps=con.prepareStatement(sql);
-            rs=ps.executeQuery();
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+
             while (rs.next()) {
-                Producto em=new Producto();
-                em.setId(rs.getInt(1));
-                em.setNom(rs.getString(2));
-                em.setPre(rs.getDouble(3));
-                em.setStock(rs.getInt(4));
-                em.setEstado(rs.getString(5));
-                lista.add(em);
-                
+                Producto producto = new Producto();
+                producto.setIdProducto(rs.getInt(1));
+                producto.setNombres(rs.getString(2));
+                producto.setPrecio(rs.getDouble(3));
+                producto.setStock(rs.getInt(4));
+                producto.setEstado(rs.getString(5));
+
+                lista.add(producto);
             }
-        }catch (Exception e){
-            
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lista;
     }
-    
-    public int agregar(Producto p) {
-        String sql="insert into producto (Nombres, Precio, Stock, Estado)values(?,?,?,?)";
-        try{
-           con=cn.Conexion();
-           ps=con.prepareStatement(sql);
-           ps.setString(1, p.getNom());
-           ps.setDouble(2, p.getPre());
-           ps.setInt(3, p.getStock());
-           ps.setString(4, p.getEstado());
-            int executeUpdate = ps.executeUpdate();
-        }catch (Exception e){
-            
-        }
-    return r;    
-    }
-      
 
-    public Producto listarId(int id) {
-        Producto pr=new Producto();
-        String sql="select * from producto where IdProducto="+id;
-        try {
-            con=cn.Conexion();
-            ps=con.prepareStatement(sql);
-            rs=ps.executeQuery();
-            while (rs.next()) {
-                pr.setId(rs.getInt(1));
-                pr.setNom(rs.getNString(2));
-                pr.setPre(rs.getDouble(3));
-                pr.setStock(rs.getInt(4));
-                pr.setEstado(rs.getNString(5));
-            } 
-        }catch (Exception e) {
-            
-        }
-        return pr;
-    }
-    
-    public int actualizar(Producto em) throws SQLException {
-  
-        String sql="update producto set Nombres=?, Precio=?, Stock=?, Estado=? where IdProducto=?";
-        try {
-           con=cn.Conexion();
-           ps=con.prepareStatement(sql);
-           ps.setString(1, em.getNom());
-           ps.setDouble(2, em.getPre());
-           ps.setInt(3, em.getStock());
-           ps.setString(4, em.getEstado());
-           ps.setInt(5, em.getId());
-            int executeUpdate = ps.executeUpdate();
-            
+    public int agregar(Producto producto) {
+        String sql = "INSERT INTO producto(Nombres, Precio, Stock, Estado) VALUES (?,?,?,?)";
 
-        }catch (Exception e) {
-            
+        try {
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, producto.getNombres());
+            ps.setDouble(2, producto.getPrecio());
+            ps.setInt(3, producto.getStock());
+            ps.setString(4, producto.getEstado());
+            ps.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return r;
     }
-    public void delete(int id){
-      String sql="delete from producto where IdProducto="+id;
-      try {
-         con=cn.Conexion();
-         ps=con.prepareStatement(sql);
-         ps.executeUpdate();
-      } catch (Exception e){
-      }
-   }
 
-    private static class connection {
+    public int actualizar(Producto producto) {
+        String sql = "UPDATE producto SET Nombres=?, Precio=?, Stock=?, Estado=? WHERE idProducto=?";
 
-        public connection() {
+        try {
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, producto.getNombres());
+            ps.setDouble(2, producto.getPrecio());
+            ps.setInt(3, producto.getStock());
+            ps.setString(4, producto.getEstado());
+            ps.setInt(5, producto.getIdProducto());
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        private PreparedStatement prepareStatement(String sql) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
+        return r;
     }
 
-    private static class conexion {
+    public Producto listarId(int id) {
+        String sql = "SELECT * FROM producto WHERE idProducto=" + id;
+        Producto producto = null;
 
-        public conexion() {
+        try {
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                producto = new Producto();
+                producto.setIdProducto(rs.getInt(1));
+                producto.setNombres(rs.getString(2));
+                producto.setPrecio(rs.getDouble(3));
+                producto.setStock(rs.getInt(4));
+                producto.setEstado(rs.getString(5));
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return producto;
+    }
 
-      
-       
+    public int delete(int id) {
+        String sql = "DELETE FROM producto WHERE idProducto=" + id;
+
+        try {
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
+            r = ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return r;
     }
 }

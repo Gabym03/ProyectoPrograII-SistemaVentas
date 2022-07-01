@@ -1,25 +1,24 @@
-
 package Modelo;
 
 public class Empleado {
+
     int id;
     String dni;
     String nom;
     String tel;
     String estado;
     String user;
-    
-    public Empleado (){
-}
-    
-    public Empleado (int id, String dni, String nom, String tel, String estado, String user){
 
-    this.id = id;
-    this.dni= dni;
-    this.nom= nom;
-    this.tel= tel;
-    this.estado=  estado;
-    this.user= user;
+    public Empleado() {
+    }
+
+    public Empleado(int id, String dni, String nom, String tel, String estado, String user) {
+        this.id = id;
+        this.dni = dni;
+        this.nom = nom;
+        this.tel = tel;
+        this.estado = estado;
+        this.user = user;
     }
 
     public int getId() {
@@ -70,6 +69,4 @@ public class Empleado {
         this.user = user;
     }
 
-    
-    
 }

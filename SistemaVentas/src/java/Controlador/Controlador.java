@@ -94,8 +94,8 @@ public class Controlador extends HttpServlet {
         if (menu.equals("Clientes")){
             request.getRequestDispatcher("Clientes.jsp").forward(request, response);
         }
-        if (menu.equals("Productos")){
-            request.getRequestDispatcher("Empleado.jsp").forward(request, response);
+        if (menu.equals("Producto")){
+            request.getRequestDispatcher("Producto.jsp").forward(request, response);
         }
         if (menu.equals("NuevaVenta")){
             switch (accion) {
@@ -105,6 +105,8 @@ public class Controlador extends HttpServlet {
                     c=cdao.buscar(dni);
                     request.setAttribute("c", c);
                     break;
+                case "BuscarProducto":
+                    
                 default:
                     throw new AssertionError();
             }

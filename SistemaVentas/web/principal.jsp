@@ -14,11 +14,6 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-info">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -28,38 +23,26 @@
         <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="Controlador?menu=Producto" target="myFrame">Producto</a>
       </li>
       <li class="nav-item">
-        <a style="margin-left: 10px; border: none" class="btn-outline-light" href="Controlador?menu=Empleado&accion=Listar" target="myFrame">Empleado</a>
+        <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="Controlador?menu=Empleado&accion=Listar" target="myFrame">Empleado</a>
       </li>
       <li class="nav-item">
-        <a style="margin-left: 10px; border: none" class="btn-outline-light" href="Controlador?menu=Clientes" target="myFrame">Clientes</a>
+        <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="Controlador?menu=Clientes" target="myFrame">Clientes</a>
       </li>
       <li class="nav-item">
-        <a style="margin-left: 10px; border: none" class="btn-outline-light" href="Controlador?menu=NuevaVenta&accion=default" target="myFrame">Nueva Venta </a>
+        <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="Controlador?menu=NuevaVenta&accion=default" target="myFrame">Nueva Venta </a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
+     
+     
     </ul>
       <div class="dropdown">
   <button style="border: none" class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-   $ {usuario.getNom()} 
+    ${usuario.getNom()}
   </button>
   <div class="dropdown-menu" text-center>
       <a class="dropdown-item" href="#">
           <img src="images/user.png" alt="60" width="60"/>
       </a>
-    <a class="dropdown-item" href="#">$ {usuario.getUser()}</a>
+    <a class="dropdown-item" href="#">${usuario.getUser()}</a>
     <a class="dropdown-item" href="#">usuario@gmail.com</a>
     <div> class="dropdown-divider" </div> 
     <form action="Validar" method="POST"> 
@@ -75,7 +58,7 @@
   </div>
 </nav>
         <div class="m-4" style="height: 550px;"> 
-            <iframe> id="MyFrame" style="height: 100%; width: 100%; border: none" </iframe>
+            <iframe name="myFrame" style="height: 100%; width: 100%; border: none" ></iframe>
         </div>
         
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

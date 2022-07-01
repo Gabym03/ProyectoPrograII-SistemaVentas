@@ -1,8 +1,3 @@
-<%-- 
-    Document   : Empleado
-    Created on : 19 jun 2022, 16:57:27
-    Author     : Fá
---%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

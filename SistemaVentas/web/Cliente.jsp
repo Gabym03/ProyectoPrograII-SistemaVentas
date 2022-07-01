@@ -13,22 +13,22 @@
         <div class="d-flex">
             <div class="card col-sm-4">
                 <div class="card-body">
-                    <form action="Controlador?menu=Producto" method="POST">
+                    <form action="Controlador?menu=Cliente" method="POST">
+                        <div class="form-group">
+                            <label>DNI</label>
+                            <input type="text" value="${clienteSeleccionado.getDni()}" name="txtDni" class="form-control">
+                        </div>
                         <div class="form-group">
                             <label>Nombres</label>
-                            <input type="text" value="${productoSeleccionado.getNombres()}" name="txtNombres" class="form-control">
+                            <input type="text" value="${clienteSeleccionado.getNombres()}" name="txtNombres" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>Precio</label>
-                            <input type="number" value="${productoSeleccionado.getPrecio()}" name="txtPrecio" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>Stock</label>
-                            <input type="number" value="${productoSeleccionado.getStock()}" name="txtStock" class="form-control">
+                            <label>Direccion</label>
+                            <input type="text" value="${clienteSeleccionado.getDireccion()}" name="txtDireccion" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Estado</label>
-                            <input type="text" value="${productoSeleccionado.getEstado()}" name="txtEstado" class="form-control">
+                            <input type="text" value="${clienteSeleccionado.getEstado()}" name="txtEstado" class="form-control">
                         </div>
                         <input type="submit" name="accion" value="Agregar" class="btn btn-info">
                         <input type="submit" name="accion" value="Actualizar" class="btn btn-success">
@@ -40,24 +40,24 @@
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>DNI</th>
                             <th>NOMBRES</th>
-                            <th>PRECIO</th>
-                            <th>STOCK</th>
+                            <th>DIRECCION</th>
                             <th>ESTADO</th>
                             <th>ACCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="producto" items="${listadoProductos}">
+                        <c:forEach var="cliente" items="${listadoClientes}">
                             <tr>
-                                <td>${producto.getIdProducto()}</td>
-                                <td>${producto.getNombres()}</td>
-                                <td>${producto.getPrecio()}</td>
-                                <td>${producto.getStock()}</td>
-                                <td>${producto.getEstado()}</td>
+                                <td>${cliente.getIdCliente()}</td>
+                                <td>${cliente.getDni()}</td>
+                                <td>${cliente.getNombres()}</td>
+                                <td>${cliente.getDireccion()}</td>
+                                <td>${cliente.getEstado()}</td>
                                 <td>
-                                    <a class="btn btn-warning" href="Controlador?menu=Producto&accion=Editar&id=${producto.getIdProducto()}">Editar</a>
-                                    <a class="btn btn-danger" href="Controlador?menu=Producto&accion=Eliminar&id=${producto.getIdProducto()}">Eliminar</a>
+                                    <a class="btn btn-warning" href="Controlador?menu=Cliente&accion=Editar&id=${cliente.getIdCliente()}">Editar</a>
+                                    <a class="btn btn-danger" href="Controlador?menu=Cliente&accion=Eliminar&id=${cliente.getIdCliente()}">Eliminar</a>
                                 </td>
                             </tr>
                         </c:forEach>
